@@ -1,0 +1,10 @@
+.aboutus {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: 2rem;
+    font-family: poppins;
+    color: red;
+    background-color: white;
+}

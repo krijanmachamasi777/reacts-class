@@ -1,0 +1,31 @@
+.navbar{
+    background-color: grey;
+    padding: 15x;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.navbar a{
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+}
+
+.navbar a:hover{
+    background-color: darkgray;
+    border-radius: 5px;
+}
+
+.logo{
+   font-size: 20px;
+   font-weight: bold;
+   color: white;
+}
+.clock-container{
+    text-align: center;
+    font-size:1.5rem;
+    font-family: monospace;
+    padding: 10px;
+}
