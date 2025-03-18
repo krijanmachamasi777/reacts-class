@@ -12,9 +12,7 @@
     align-items: start;
    
 }
-.contactus:hover{
-    border:3px solid black;
-}
+
 .container{
     display:flex;
     flex-direction: column;

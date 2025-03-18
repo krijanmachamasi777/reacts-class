@@ -1,23 +1,51 @@
 import './contactus.css';
-const contactUs = () => {
-    return (
+import { useState } from 'react';
 
-        <div className="contactus">
-            
-            <div className="container">
-                Enter your name <input type="text" placeholder="enter your name" />
-                Enter your email <input type="email" placeholder="enter your email" />
-                Subject <input type="text" placeholder="Subject" />
-                Enter your phone-number <input type="number" placeholder="enter your number" />
-                
-                Enter your message <input type="text" placeholder="enter your message" />
-                <button>Submit</button>
+
+const Contactus = () => {
+    const initialFormState = {
+        name: "",
+        phonenumber: "",
+        subject: "",
+        email: "",
+        message: "",
+    };
+    const [formData, setFormData] = useState(initialFormState);
+
+    const handleChange = (e) => {
+        const { id, value } = e.target;
+        setFormData((prevData) => ({
+            ...prevData,
+            [id]: value,
+        }))
+
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log("Form Data:", formData);
+    }
+
+
+    return (
+        <form className="form" onSubmit={handleSubmit} >
+            <div className="contactus">
+
+                <div className="container" >
+                    Enter your name <input type="text" id="name" value={formData.name} placeholder="enter your name" onChange={handleChange} />
+                    Enter your email <input type="email" id="email" value={formData.email} placeholder="enter your email" onChange={handleChange} />
+                    Subject <input type="text" id="subject" value={formData.subject} placeholder="Subject" onChange={handleChange} />
+                    Enter your phone-number <input type="number" id="phonenumber" value={formData.phonenumber} placeholder="enter your number" onChange={handleChange} />
+
+                    Enter your message <input type="text" id="message" value={formData.message} placeholder="enter your message" onChange={handleChange} />
+                    <button type="submit">Submit</button>
+
+                </div>
+
+
 
             </div>
-
-
-
-        </div>
+        </form>
     )
 }
-export default contactUs;
+export default Contactus;

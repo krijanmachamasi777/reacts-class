@@ -35,24 +35,10 @@ const Card = ({movie}) => {
   const posterUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
 
   return (
-    // return (
-    //   moviesList.length!=0?
-    //   <>
-    //     <img
-    //       src={`https://image.tmdb.org/t/p/w500${moviesList[0].poster_path}`}
-    //       alt={moviesList[0].title}
-    //       className="movie-poster"
-    //     />
-    //     <h1>{moviesList[0].title}</h1>
-    //     <p>{moviesList[0].overview}</p>
-    //   </>
-    //   :<>
-    //   <h2>No data</h2>
-    //   </>
-    // );
+   
     <div className="movie-card">
       <div className="movie-poster">
-        <img src={posterUrl} alt="image" />
+        <img src={posterUrl} alt="FAILED TO LOAD THE IMAGE" />
         <div className = "movie-rating">
           <span> {movie.vote_average.toFixed(1)}</span>
         </div>
