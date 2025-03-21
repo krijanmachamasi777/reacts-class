@@ -1,6 +1,6 @@
 import { Link, Outlet } from "react-router-dom";
 import './home.css';
-import { useEffect,useState } from "react";
+import { useEffect, useState } from "react";
 const NavBar = () => {
     const [time, settime] = useState(new Date());
     useEffect(() => {
@@ -8,7 +8,8 @@ const NavBar = () => {
             settime(new Date());
         }, 1000);
         return () => clearInterval(interval);
-    })
+    });
+    
     return (
         <>
             <nav className="navbar">
@@ -18,9 +19,10 @@ const NavBar = () => {
                     <Link to="/movies">Movies</Link>
                     <Link to="/about-us">About Us</Link>
                     <Link to="/contact-us">Contact Us</Link>
+                    <Link to="/todo-list">Todo List</Link>
                 </div>
                 <div className="clock-container">
-                {time.toLocaleTimeString()}
+                    {time.toLocaleTimeString()}
                 </div>
 
 
