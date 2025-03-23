@@ -20,6 +20,8 @@ const NavBar = () => {
                     <Link to="/about-us">About Us</Link>
                     <Link to="/contact-us">Contact Us</Link>
                     <Link to="/todo-list">Todo List</Link>
+                <Link to="component-one">Component One</Link>
+                <Link to="login">Login</Link>
                 </div>
                 <div className="clock-container">
                     {time.toLocaleTimeString()}

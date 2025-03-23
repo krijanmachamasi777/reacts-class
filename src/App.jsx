@@ -7,6 +7,8 @@ import Pagenotfound from './components/pagenotfound';
 import Aboutus from './components/about-us';
 import Contactus from './components/contact-us';
 import Todo_list from './components/Todo_list'; 
+import ComponentOne from './components/component-one';
+import Login from './components/login/login';
 
 
   const App=()=> {
@@ -18,6 +20,8 @@ import Todo_list from './components/Todo_list';
           <Route path="/about-us" element={<Aboutus />} />
           <Route path="/contact-us" element={<Contactus />} />
           <Route path="/todo-list" element={<Todo_list />} />
+          <Route path="component-one" element={<ComponentOne />} />
+          <Route path="login" element={<Login />} />
         </Route>
         <Route path="*" element={<Pagenotfound />} />
       </Routes>

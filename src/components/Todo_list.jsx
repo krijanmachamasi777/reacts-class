@@ -1,98 +1,69 @@
-import './Todo_list.css';
+import React, { useState, useEffect } from "react";
+import '../components/Todo_list.css';
 
-import { useState } from 'react';
+const TodoList = () => {
+    // Load the todo list from localStorage if available, otherwise initialize with an empty array
+    const [todoList, setTodoList] = useState(() => {
+        const savedTodos = localStorage.getItem('todoList');
+        return savedTodos ? JSON.parse(savedTodos) : [];
+    });
+    const [newTodo, setNewTodo] = useState("");
 
-const Todo_list = () => {
-    const initialFormState = {
-        task: "",
-    };
-    const [formData, setFormData] = useState(initialFormState);
+    // Save the todo list to localStorage whenever it changes
+    useEffect(() => {
+        localStorage.setItem('todoList', JSON.stringify(todoList));
+    }, [todoList]);
 
-    const [taskList, setTaskList] = useState([]);
-
-    const handleChange = (e) => {
-        const { id, value } = e.target;
-        setFormData((prevData) => ({
-            ...prevData,
-            [id]: value,
-        }))
-
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        setTaskList([...taskList, formData.task]);
-        setFormData(initialFormState);
-    }
-
-    const handleDelete = (index) => {
-        const updatedTaskList = taskList.filter((task, i) => i !== index);
-        setTaskList(updatedTaskList);
-    }
-
-
-
-    const inputBox = document.getElementById("input-box");
-    const listContainer = document.getElementById("list-container");
-    
-    function addTask() {    
-        if(inputBox.value === "") 
-            alert("Please enter a task");
-         else {
-            let li = document.createElement("li");
-            li.innerHTML = inputBox.value;
-            listContainer.appendChild(li);
-            let span = document.createElement("span");
-            span.innerHTML = "\u00d7";
-            li.appendChild(span);
-            savedata();
-           
+    function Add() {
+        // Check if the newTodo is not empty
+        if (newTodo.trim() !== "") {
+            setTodoList([...todoList, { text: newTodo, completed: false }]);
+            setNewTodo("");
+        } else {
+            alert("Please enter a todo item.");
         }
-        inputBox.value = "";
-        savedata();
     }
-    listContainer.addEventListener("click", function(e) {
-        if(e.target.tagName === "LI") {
-            e.target.classList.toggle("checked");
-            savedata();
-        }
-         else if(e.target.tagName === "SPAN") {
-            e.target.parentElement.remove();
-            savedata();
-        }
-    },false);
-    
-    function savedata() {
-        localStorage.setItem("data",listContainer.innerHTML);
+
+    function Remove(index) {
+        setTodoList(todoList.filter((todo, i) => i !== index));
     }
-    
-    function showtasks() {
-        listContainer.innerHTML = localStorage.getItem("data");
+
+    function ToggleComplete(index) {
+        const updatedList = [...todoList];
+        updatedList[index].completed = !updatedList[index].completed;
+        setTodoList(updatedList);
     }
-    showtasks();
-
-
-
-
-    
-    
-
 
     return (
-        <form className="form" onSubmit={handleSubmit} >
-            <div className="container1">
-        <div className="todo-app">
-            <h2>To Do List </h2>
-            <div className="row">
-                <input  type="text" id="input-box" placeholder="Add a new task"/>
-                <button onclick="addTask()">Add</button>
+        <>
+        
+            <h1>Todo List</h1>
+            <div className="todo">
+            <input 
+                type="text"
+                value={newTodo}
+                onChange={(e) => setNewTodo(e.target.value)}
+            />
             </div>
-            <ul id="list-container">
-           
-            </ul>
-        </div>
-    </div>
-        </form>
-    )
+            <br />
+            <button onClick={Add}>Add</button>
+
+            <div>
+                <h2>List:</h2>
+                <ul>
+                    {todoList.map((todo, index) => (
+                        <li key={index} style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}>
+                            {todo.text}
+                            <button onClick={() => ToggleComplete(index)}>
+                                {todo.completed ? "Undo" : "Complete"}
+                            </button>
+                            <button onClick={() => Remove(index)}>X</button>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        </>
+    );
 }
-export default Todo_list;
+
+export default TodoList;

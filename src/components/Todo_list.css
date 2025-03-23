@@ -4,28 +4,8 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
-.container1{
-    width: 100%;
-    min-height: 100vh;
-    background: linear-gradient(135deg,#153677,#4e085f);
-    padding:10px;
-}
-.todo-app{
-    width: 100%;
-    max-width: 540px;
-    margin: 100px auto 20px;
-    background: #fff;
-    padding: 40px 30px 70px;
-    border-radius: 10px;
-}
-.todo-app h2{
-    color:#002765;
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
 
-.row{
+.todo{
     display: flex;
     align-items: center;
     margin-bottom: 25px;
@@ -34,8 +14,9 @@
     padding: left 20px;
 
 }
- .row input{
+ .todo input{
     flex:1;
+
     border:none;
     outline: none;
     padding: 10px;
@@ -93,4 +74,8 @@ ul li span{
 }
 ul li span:hover{
 background-color: #edeef0;
+}
+#list-container{
+    margin-top: 20px;
+    color:black;
 }
