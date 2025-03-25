@@ -1,49 +1,50 @@
 import './login.css';
-import React, { Component, useState } from 'react';
+import React, { useState } from 'react';
 
 const Login = () => {
-    const [email, setemail] = useState("");
-    const [password, setpassword] = useState("");
-    const [showAlert, setshowalert] = useState(false);
-    const handelLogin = () => {
-        if (email === "admin@12" && password === "admin") {
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [showAlert, setShowAlert] = useState(false);
 
+    const handleLogin = (e) => {
+        e.preventDefault(); // Prevent form submission default behavior
+        
+        if (email === "admin@12" && password === "admin") {
             alert("Login Success");
         } else {
-            setshowalert(true);
-            setTimeout(() => setshowalert(false), 3000);
+            setShowAlert(true);
+            setTimeout(() => setShowAlert(false), 2000);
         }
     }
+
     return (
         <>
-
             <h1>Login</h1>
             <div className="login">
-                <form>
-                    <input type="text"
+                <form onSubmit={handleLogin}>
+                    <input
+                        type="text"
                         placeholder="Email"
                         value={email}
-                        onChange={(e) => setemail(e.target.value)}
+                        onChange={(e) => setEmail(e.target.value)}
                     />
-                    <input type="password"
-                        placeholder="password"
+                    <input
+                        type="password"
+                        placeholder="Password"
                         value={password}
-                        onChange={(e) => setpassword(e.target.value)}
+                        onChange={(e) => setPassword(e.target.value)}
                     />
-                    <button onClick={handelLogin}>Login</button>
+                    <button type="submit">Login</button>
                 </form>
-            </div>
-
-            {showAlert && (
+                {showAlert && (
                 <div className="alert-dialog">
                     <div className="alert-content">
                         <h1>Invalid Email or Password</h1>
                     </div>
                 </div>)}
-
-
-
+            </div>
         </>
     );
 };
+
 export default Login;
