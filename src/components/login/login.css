@@ -2,8 +2,7 @@
 .login{
     display: flex;
     justify-content: center;
-    
-   margin-top: 40px;
+     margin-top: 40px;
     height: 100vh;
     background-color: transparent;
 }
@@ -45,7 +44,7 @@ h1{
 }
 
 .alert-content {
-    background: white;
+    background: rgb(206, 18, 18);
     padding: 20px;
     border-radius: 8px;
     text-align: center;

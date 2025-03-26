@@ -36,19 +36,25 @@ const TodoList = () => {
 
     return (
         <>
-        
+        <div className="todo">
             <h1>Todo List</h1>
-            <div className="todo">
+            
+                <div className="inputele">
+            <label htmlFor="newTodo">New Todo</label>
+            <br />
+            <br />
             <input 
                 type="text"
                 value={newTodo}
                 onChange={(e) => setNewTodo(e.target.value)}
             />
-            </div>
+           
             <br />
             <button onClick={Add}>Add</button>
+            </div>
+            </div>
 
-            <div>
+            <div className="lists">
                 <h2>List:</h2>
                 <ul>
                     {todoList.map((todo, index) => (
@@ -61,6 +67,7 @@ const TodoList = () => {
                         </li>
                     ))}
                 </ul>
+           
             </div>
         </>
     );

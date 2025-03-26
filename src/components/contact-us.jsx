@@ -28,7 +28,7 @@ const Contactus = () => {
 
 
     return (
-        <form className="form" onSubmit={handleSubmit} >
+       
             <div className="contactus">
 
                 <div className="container" >
@@ -38,14 +38,14 @@ const Contactus = () => {
                     Enter your phone-number <input type="number" id="phonenumber" value={formData.phonenumber} placeholder="enter your number" onChange={handleChange} />
 
                     Enter your message <input type="text" id="message" value={formData.message} placeholder="enter your message" onChange={handleChange} />
-                    <button type="submit">Submit</button>
+                    <button>Submit</button>
 
                 </div>
 
 
 
             </div>
-        </form>
+        
     )
 }
 export default Contactus;

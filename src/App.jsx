@@ -9,6 +9,7 @@ import Contactus from './components/contact-us';
 import Todo_list from './components/Todo_list'; 
 import ComponentOne from './components/component-one';
 import Login from './components/login/login';
+import Mantine from './components/mantine';
 
 
   const App=()=> {
@@ -22,6 +23,7 @@ import Login from './components/login/login';
           <Route path="/todo-list" element={<Todo_list />} />
           <Route path="component-one" element={<ComponentOne />} />
           <Route path="login" element={<Login />} />
+          <Route path="mantine" element={<Mantine />} />
         </Route>
         <Route path="*" element={<Pagenotfound />} />
       </Routes>
