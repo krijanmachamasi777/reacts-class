@@ -36,22 +36,21 @@ const TodoList = () => {
 
     return (
         <>
-        <div className="todo">
-            <h1>Todo List</h1>
-            
+            <div className="todo">
+                <h1>Todo List</h1>
+
                 <div className="inputele">
-            <label htmlFor="newTodo">New Todo</label>
-            <br />
-            <br />
-            <input 
-                type="text"
-                value={newTodo}
-                onChange={(e) => setNewTodo(e.target.value)}
-            />
-           
-            <br />
-            <button onClick={Add}>Add</button>
-            </div>
+                    <label htmlFor="newTodo">New Todo</label>
+                    
+                    <input
+                        type="text"
+                        value={newTodo}
+                        onChange={(e) => setNewTodo(e.target.value)}
+                    />
+
+                    <br />
+                    <button onClick={Add}>Add</button>
+                </div>
             </div>
 
             <div className="lists">
@@ -67,7 +66,7 @@ const TodoList = () => {
                         </li>
                     ))}
                 </ul>
-           
+
             </div>
         </>
     );

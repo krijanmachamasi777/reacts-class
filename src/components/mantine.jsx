@@ -5,6 +5,7 @@ import { BackgroundImage, Center, Text } from '@mantine/core';
 const MantineComponent = () => {
     return (
         <>
+        
             <Container 
                 
                 size="sm" 
